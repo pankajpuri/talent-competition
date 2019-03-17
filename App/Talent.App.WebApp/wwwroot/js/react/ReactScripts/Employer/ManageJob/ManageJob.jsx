@@ -6,6 +6,8 @@ import { LoggedInNavigation } from '../../Layout/LoggedInNavigation.jsx';
 import { JobSummaryCard } from './JobSummaryCard.jsx';
 import { BodyWrapper, loaderData } from '../../Layout/BodyWrapper.jsx';
 import { Pagination, Icon, Dropdown, Checkbox, Accordion, Form, Segment, Grid, Card, Label, Image } from 'semantic-ui-react';
+import CreatePagination from './CreatePagination.jsx';
+import CreateJobCard from './CreateJobCard.jsx';
 
 
 export default class ManageJob extends React.Component {
@@ -77,61 +79,33 @@ export default class ManageJob extends React.Component {
     render() {
         return (
             <BodyWrapper reload={this.init} loaderData={this.state.loaderData}>
-                <div className="ui container">
-                    <h3>List of Jobs</h3>
-                    <div class="ui horizontal segments">
-                        <div class="ui segment">
-                            <p >  <Icon className="filter" />Filter: Choose filter<Icon className='dropdown' /></p>
-                        </div>
-                        <div class="ui segment">
-                            <p > <Icon className=" calendar alternate " />Sort by date: Newest first<Icon className='dropdown' /></p>
-                        </div>
-                    </div>
-
-                    <div class="ui three column grid">
-                        <div class="column">
-                            <div class="ui raised segment">
-                                <a class="ui blue right ribbon label">Community</a>
-                                <span>Job Title</span>
-                                <div class="ui cards">
-                                    <div class="content">
-                                        <div class="header">Addres:s</div>
-                                        <div class="description">Description: Steve wants to add you to the group <strong>best friends</strong>
-                                        </div>
-                                    </div>
-                                    <div class="extra content ui buttons">
-
-                                        <div class="ui left floated tiny buttons">
-                                            <button class="ui column red button ">Expired</button>
-                                        </div>
-                                        <span class="column"></span>
-                                        <div class="ui tiny right floated buttons">
-                                            <button class="ui blue basic button "><i className="red ban icon" />lose</button>
-                                            <button class="ui blue basic button "><i class="edit icon" />Edit</button>
-                                            <button class="ui blue basic button "><i className="copy icon" />copy</button>
-                                        </div>
-
-                                    </div>
-
+                <section className="page-body">
+                    <div className="ui container">
+                        <div className="ui container">
+                            <h3>List of Jobs</h3>
+                            <div className="ui horizontal segments">
+                                <div className="ui segment">
+                                    <p >  <Icon className="filter" />Filter: Choose filter<Icon className='dropdown' /></p>
                                 </div>
-
-
-                            </div>
-
-                            <div class=" ui center aligned grid">
-                                <div aria-label="Pagination Navigation" role="navigation" class="ui pagination menu  ">
-                                    <a aria-current="false" aria-disabled="false" tabindex="0" value="1" aria-label="First item" type="firstItem" class="item">«</a>
-                                    <a aria-current="false" aria-disabled="false" tabindex="0" value="4" aria-label="Previous item" type="prevItem" class="item">⟨</a>
-                                    <a aria-current="false" aria-disabled="false" tabindex="0" value="1" type="pageItem" class="item">1</a>
-                                    <a aria-current="false" aria-disabled="false" tabindex="0" value="6" aria-label="Next item" type="nextItem" class="item">⟩</a>
-                                    <a aria-current="false" aria-disabled="false" tabindex="0" value="10" aria-label="Last item" type="lastItem" class="item">»</a>
+                                <div className="ui segment">
+                                    <p > <Icon className=" calendar alternate " />Sort by date: Newest first<Icon className='dropdown' /></p>
                                 </div>
                             </div>
 
+                            <div className="ui three column grid">
+                                    <CreateJobCard />
+                                
+                                
+                            </div>
+                            <div className=" ui center aligned grid">
+                                <CreatePagination />
+                            </div>
+                            <div className=" ui grid">
+                                <div className="row" />
+                            </div> 
                         </div>
                     </div>
-                </div>
-
+                </section>
             </BodyWrapper>
 
         );
